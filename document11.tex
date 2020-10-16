@@ -222,10 +222,14 @@ Now,
 \begin{align}
 M = \myvec{0 & 1\\4 & 0\\3 & 0}
 \end{align}
-Now, we will solve $Mx=b$
+Now, we will solve $\vec{M}\vec{x}=\vec{b}$
+Now let a point is taken on x-axis, that is, $\myvec{0\\0\\0}$, so $\vec{b}$ will be:
+\begin{align}
+\vec{b}=\myvec{0\\0\\-\frac{7}{4}}
+\end{align}
 \begin{multline}
 \vec{M}\vec{x}=\vec{b}\\
-\implies \myvec{0 & 1\\4 & 0\\3 & 0}\vec{x}= \myvec{p\\0\\0}
+\implies \myvec{0 & 1\\4 & 0\\3 & 0}\vec{x}= \myvec{0\\0\\-\frac{7}{4}}
 \label{eqn:2}
 \end{multline}
 Now the equation \ref{eqn:2} will be solved by using SVD.
@@ -326,32 +330,32 @@ Similarly, the eigen vector of $\vec{M}\vec{M}^T $ for $\lambda_3$ = 25,
 \end{align}
 Now,
 \begin{align}
-\vec{U} = \myvec{0 & 1 & 0\\-3 & 0 & 4\\4 & 0 & 3}\\
-\implies \vec{U}^T = \myvec{0 & -3 & 4\\1 & 0 & 0\\0 & 4 & 3}\\
+\vec{U} = \myvec{0 & 1 & 0\\-\frac{3}{5} & 0 & \frac{4}{5}\\\frac{4}{5} & 0 & \frac{3}{5}}\\
+\implies \vec{U}^T = \myvec{0 & -\frac{3}{5} & \frac{4}{5}\\1 & 0 & 0\\0 & \frac{4}{5} & \frac{3}{5}}\\
 \end{align}
 \begin{align}
 \vec{X} = \vec{V} \vec{S_+} \vec{U}^T \vec{b}
 \end{align}
 Now,
 \begin{align}
-\vec{U}^T \vec{b} = \myvec{0\\p\\0}\\
-\vec{S_+} \vec{U}^T \vec{b} = \myvec{0\\ p}\\
-\vec{V} \vec{S_+} \vec{U}^T \vec{b} = \myvec{0 \\ p}\\
-\vec{X}= \myvec{0\\p}
+\vec{U}^T \vec{b} = \myvec{-\frac{7}{5}\\0\\-\frac{21}{20}}\\
+\vec{S_+} \vec{U}^T \vec{b} = \myvec{-\frac{7}{25}\\ 0}\\
+\vec{V} \vec{S_+} \vec{U}^T \vec{b} = \myvec{-\frac{7}{25}\\ 0}\\
+\vec{X}= \myvec{-\frac{7}{25}\\ 0}
 \label{eqn:3}
 \end{align}
-So, $\vec{X}$=$\myvec{0\\p}$.\\
+So, $\vec{X}$=$\myvec{-\frac{7}{25}\\ 0}$.\\
 Verifying the solution of \ref{eqn:3} using,
 \begin{align}
 \vec{M}^T \vec{M} \vec{X} = \vec{M}^T \vec{b}\\
-\implies \myvec{25 & 0\\0 & 1}\vec{X} = \myvec{0\\p}
+\implies \myvec{25 & 0\\0 & 1}\vec{X} = \myvec{-\frac{21}{4}\\ 0}
 \end{align}
 Now, taking the augmented matrix,
 \begin{align}
-\myvec{25 & 0 & 0\\0 & 1 & p} \xleftrightarrow[]{R_1\leftarrow \frac{R_1}{25}}\myvec{1 & 0 & 0\\0 & 1 & p}\\
-\implies \myvec{1 & 0\\0 & 1}\vec{X}=\myvec{0\\p}
+\myvec{25 & 0 & -\frac{21}{4}\\0 & 1 & 0} \xleftrightarrow[]{R_1\leftarrow \frac{R_1}{25}}\myvec{1 & 0 & -\frac{21}{100}\\0 & 1 & 0}\\
+\implies \myvec{1 & 0\\0 & 1}\vec{X}=\myvec{-\frac{21}{100}\\0}
 \end{align}
-So we can conclude that the solution is verified.
+%So we can conclude that the solution is verified.
 
 Now, the plane $3y-4z+7 =0$ is parallel to x-axis. Another plane that is perpendicular to the above plane and passing through x-axis is $4y+3z=0$ which intersects the above plane at a straight $4y+3z=-\frac{7}{25}$ and the point $p$ will be on that line of the plane as the perpendicular distance of the plane $3y-4z+7 =0$ from x-axis is $\frac{7}{25}$.
 
@@ -378,7 +382,7 @@ From these 2 equations we get
 \begin{align}
 \myvec{3&-4\\4&3} \myvec{y\\z} = \myvec{-7\\0}
 \end{align}
-Now, the augmented matrix is $\myvec{3&-4&-7\\4&3\\0}$
+Now, the augmented matrix is $\myvec{3&-4&-7\\4&3&0\\0&0&0}$
 \begin{align}
 \myvec{3&-4&-7\\4&3&0} \xleftrightarrow[R_1\leftarrow \frac{R_1}{3}]{R_2\leftarrow \frac{R_2}{4}}\myvec{1&-\frac{4}{3}&-\frac{7}{3}\\1&\frac{3}{4}&0}\\
 \xleftrightarrow[]{R_2\leftarrow R_2-R_1}\myvec{1&-\frac{4}{3}&-\frac{7}{3}\\0&\frac{25}{12}&\frac{7}{3}}\\
